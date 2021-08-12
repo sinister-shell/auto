@@ -1,0 +1,73 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 9999;
+  display: none;
+  overflow: auto;
+  &__overlay {
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    background: rgba(10, 11, 14, 0.9);
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+  }
+  &__wrapper {
+    display: flex;
+  }
+  &__form {
+    position: relative;
+    width: 390px;
+    padding: 45px 45px 40px;
+    @include xs-block {
+      width: 320px;
+    }
+  }
+  &__form-title {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  &__pic {
+    max-height: 352px;
+    overflow: hidden;
+    @include xs-block {
+      display: none;
+    }
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.close {
+  position: absolute;
+  right: 6px;
+  top: 8px;
+  width: 30px;
+  height: 30px;
+  &:before,
+  &:after {
+    content: ' ';
+    position: absolute;
+    top: 28%;
+    left: 15px;
+    height: 12px;
+    width: 1px;
+    background-color: #ffffff;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
+}
+
+.open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

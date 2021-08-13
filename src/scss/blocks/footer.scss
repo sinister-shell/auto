@@ -1,0 +1,77 @@
+.main-footer {
+  padding: 40px 0 30px;
+  background: #FFFFFF;
+  @include sm-block {
+    padding-top: 30px;
+    padding-bottom: 25px;
+  }
+  &__top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include sm-block {
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+  }
+  &__logo {
+    margin: auto;
+    margin-bottom: 33px;
+    @include sm-block {
+      margin:0;
+    }
+  }
+  &__social {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 42px;
+    @include sm-block {
+      margin-bottom: 0;
+      margin-left: auto;
+      margin-right: 75px;
+    }
+  }
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include sm-block {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  &__copyright {
+    margin-bottom: 30px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
+    @include sm-block {
+      display: none;
+      margin-bottom: 0;
+    }
+    &--lg {
+      display: none;
+      @include sm-block {
+        display: block;
+
+      }
+    }
+  }
+  &__policy {
+    margin-top: 22px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-decoration: underline;
+    color: #000000;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  &__button {
+    padding: 13px 25px;
+  }
+}

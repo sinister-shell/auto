@@ -1,0 +1,99 @@
+.promo {
+  position: relative;
+  background-image: url("../../img/bg-hero.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 11% 100%;
+  &__overlay {
+    position: relative;
+    overflow: hidden;
+    &:before {
+      content: '';
+      position: absolute;
+      z-index: 0;
+      display: block;
+      width: 700px;
+      height: 800px;
+      background: linear-gradient(180deg, #6A6A6A 0%, #333333 100%);
+      transform: rotate(30deg);
+      top: -398px;
+      left: -434px;
+      @include  sm-block {
+        top: -250px;
+        left: -210px;
+      }
+      @include xl-block {
+        height: 1020px;
+        width: 1020px;
+        top: -350px;
+        left: -58px;
+      }
+    }
+  }
+  &__container {
+    position: absolute;
+    width: 100%;
+    display: block;
+    height: 100%;
+    top: 0;
+    left:50%;
+    transform: translate(-50%);
+    &:after {
+      display: none;
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: -40px;
+      width: 556px;
+      height: 209px;
+      background-image: url("../../img/car.png");
+      background-repeat: no-repeat;
+      background-size: 555px;
+      @include sm-block {
+        display: block;
+      }
+      @include md-block {
+        width: 787px;
+        height: 301px;
+        background-size: 100%;
+        bottom: -67px;
+        //right: 425px;
+      }
+    }
+  }
+
+  &__bg {
+    position: relative;
+    padding-top: 17px;
+    padding-bottom: 208px;
+    z-index: 10;
+    overflow: hidden;
+    @include  sm-block {
+      padding-top: 57px;
+    }
+
+  }
+
+  &__header {
+    max-width: 300px;
+    position: relative;
+    margin-bottom: 30px;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 40px;
+    color: #ffffff;
+    @include  sm-block {
+      max-width: 490px;
+      margin-bottom: 40px;
+      font-size: 42px;
+      line-height: 50px;
+    }
+  }
+  &__button {
+    position: relative;
+    padding: 13px 3px;
+    @include sm-block {
+      padding: 13px 20px;
+    }
+  }
+}

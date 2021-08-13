@@ -1,23 +1,28 @@
 /*мобильная кнопка sandwich*/
 .sandwich {
-  display: none;
-  position: relative;
+  display: block;
+  position: absolute;
+  top:17px;
   right: 0;
-  width: 40px;
-  height: 30px;
+  width: 45px;
+  height: 41px;
   z-index: 2;
   border-radius: 1px;
-  @include xs-block {
-    display: block;
+
+  @include  sm-block {
+
+  }
+  @include  md-block {
+    display: none;
   }
 }
 
 .sandwich__inner { 
   display: block;
-  width: 40px;
-  height: 3px; 
-  margin-top: 12px;
-  background: #ffffff;
+  width: 45px;
+  height: 7px;
+  margin-top: 17px;
+  background: $accent;
   border-radius: 1px;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
@@ -27,17 +32,17 @@
     position: absolute; 
     content: "";
     z-index: -1;
-    width: 40px; 
-    height: 3px; 
-    background: #ffffff;
+    width: 45px;
+    height: 7px;
+    background: $accent;
     -webkit-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out; 
   }
   &::before {
-    top: 0;
+    top: 34px;
   }
   &::after {
-    top: 24px;
+    top: 0;
   }
 }
 

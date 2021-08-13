@@ -11,3 +11,76 @@
 .container {
   @include wrapper();
 }
+
+.button {
+  display: inline-block;
+  background-color: $accent;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #ffffff;
+  text-decoration: none;
+  border:1px solid transparent;
+  transition: background-color .1s ease;
+  &:hover {
+    background-color: lighten(#ffffff, 5%);
+    border-color: $accent;
+    color:$accent;
+    &:after {
+      opacity: .22;
+    }
+  }
+  &:active {
+    background-color: darken($accent, 10%);
+  }
+}
+
+.section-header {
+  font-family: $oswald;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 39px;
+  color: #444444;
+}
+
+.text-block {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0)
+}
+
+.scroll-hidden {
+  overflow: hidden;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from{
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -5,10 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>АвтоЗапчасти Пенза</title>
+
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+
+    <!--    Yandex map API-->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=df5864b7-564b-4928-85e8-2a1eb91ec3ea&lang=ru_RU" type="text/javascript"></script>
+
 </head>
 
 <body>
+
+<!--Sprite of SVG -->
+<div id="sprite" style="display: none">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <symbol id="viber" viewBox="0 0 32 32">
+            <path d="M25.8448 18.3959C26.5409 12.5363 25.5104 8.83701 23.6515 7.16382L23.6524 7.16285C20.6522 4.30548 10.5197 3.88257 6.93022 7.29118C5.31827 8.95854 4.75049 11.4056 4.68827 14.4351C4.62605 17.4655 4.55216 23.1423 9.84202 24.6823H9.84688L9.84202 27.0341C9.84202 27.0341 9.80605 27.9869 10.4147 28.1784C11.1108 28.404 11.4258 27.9616 13.5909 25.3755C17.2115 25.6895 19.992 24.9701 20.308 24.8651C21.0391 24.6201 25.1759 24.0727 25.8448 18.3959ZM13.9477 23.7208C13.9477 23.7208 11.6562 26.5781 10.9435 27.3199C10.7102 27.561 10.4545 27.5387 10.4584 27.0604C10.4584 26.7463 10.4759 23.1559 10.4759 23.1559C5.99105 21.8706 6.25549 17.0367 6.3041 14.508C6.35272 11.9783 6.81549 9.90646 8.18049 8.51132C11.3295 5.55868 20.2127 6.21882 22.476 8.34604C25.243 10.799 24.2581 17.729 24.264 17.9652C23.6952 22.7038 20.343 23.0042 19.7266 23.2094C19.4631 23.2969 17.018 23.9259 13.9477 23.7208Z" />
+            <path d="M15.2156 9.06641C14.8413 9.06641 14.8413 9.64974 15.2156 9.6546C18.1197 9.67696 20.5113 11.7011 20.5376 15.414C20.5376 15.8059 21.1112 15.801 21.1063 15.4092H21.1054C21.0742 11.4085 18.4629 9.08877 15.2156 9.06641Z" />
+            <path d="M19.0354 14.7986C19.0266 15.1855 19.5993 15.204 19.6041 14.8122C19.6518 12.6062 18.2916 10.7891 15.7356 10.5976C15.3613 10.5704 15.3224 11.1586 15.6958 11.1858C17.9124 11.354 19.0801 12.8668 19.0354 14.7986Z" />
+            <path d="M18.4233 17.3084C17.943 17.0303 17.454 17.2034 17.2517 17.4766L16.8288 18.0239C16.614 18.302 16.2124 18.265 16.2124 18.265C13.2822 17.4902 12.4985 14.4238 12.4985 14.4238C12.4985 14.4238 12.4626 14.0087 12.7309 13.786L13.2598 13.3485C13.5242 13.1385 13.6915 12.633 13.4222 12.1362C12.7027 10.8363 12.2195 10.3881 11.9735 10.0439C11.7149 9.72018 11.326 9.64726 10.9216 9.86601H10.9129C10.0719 10.358 9.15118 11.2787 9.44577 12.2266C9.94841 13.226 10.872 16.412 13.8159 18.8192C15.1994 19.9577 17.3888 21.1243 18.3183 21.3937L18.327 21.4073C19.2429 21.7125 20.1334 20.7559 20.6088 19.8896V19.8828C20.8198 19.4638 20.7498 19.0671 20.4416 18.8075C19.8952 18.2748 19.0708 17.6866 18.4233 17.3084Z" />
+            <path d="M16.1363 12.7675C17.0706 12.822 17.5237 13.31 17.5723 14.3124C17.5898 14.7042 18.1585 14.677 18.141 14.2852C18.0788 12.9766 17.3963 12.2474 16.1674 12.1793C15.7931 12.157 15.7581 12.7452 16.1363 12.7675Z" />
+        </symbol>
+        <symbol id="instagram" viewBox="0 0 32 32">
+            <path d="M19.9792 7.11133H12.0211C10.7182 7.11338 9.46937 7.63171 8.54882 8.55251C7.62827 9.47331 7.11123 10.7213 7.11124 12.0225V19.9857C7.11329 21.2855 7.63123 22.5315 8.55156 23.4507C9.47188 24.3698 10.7195 24.8871 12.0211 24.8891H19.9792C21.2807 24.8871 22.5284 24.3698 23.4487 23.4507C24.369 22.5315 24.887 21.2855 24.889 19.9857V12.0225C24.889 10.7213 24.372 9.47331 23.4514 8.55251C22.5309 7.63171 21.2821 7.11338 19.9792 7.11133ZM23.3145 19.9857C23.3124 20.8678 22.9601 21.713 22.3348 22.336C21.7096 22.959 20.8624 23.3089 19.9792 23.3089H12.0211C11.1378 23.3089 10.2907 22.959 9.66541 22.336C9.04015 21.713 8.68785 20.8678 8.68579 19.9857V12.0225C8.68784 11.1397 9.0399 10.2937 9.66494 9.66944C10.29 9.04521 11.1371 8.69362 12.0211 8.69158H19.9792C20.8631 8.69362 21.7103 9.04521 22.3353 9.66944C22.9604 10.2937 23.3124 11.1397 23.3145 12.0225V19.9857Z" />
+            <path d="M16.0076 11.5557C15.1283 11.5542 14.2682 11.8136 13.5364 12.301C12.8045 12.7885 12.2337 13.4821 11.8961 14.2941C11.5586 15.1061 11.4695 15.9999 11.6402 16.8626C11.8108 17.7252 12.2335 18.5178 12.8548 19.1401C13.476 19.7625 14.2679 20.1865 15.1303 20.3586C15.9926 20.5307 16.8866 20.4431 17.6992 20.107C18.5117 19.7708 19.2063 19.2011 19.695 18.4701C20.1837 17.739 20.4446 16.8795 20.4446 16.0001C20.4446 14.8227 19.9773 13.6933 19.1455 12.8601C18.3136 12.0268 17.1851 11.5577 16.0076 11.5557ZM16.0076 18.9055C15.4312 18.9055 14.8677 18.7345 14.3885 18.4141C13.9093 18.0937 13.536 17.6383 13.3157 17.1056C13.0955 16.5729 13.0382 15.9868 13.1512 15.4216C13.2642 14.8563 13.5424 14.3373 13.9505 13.9302C14.3587 13.5231 14.8784 13.2463 15.444 13.1348C16.0095 13.0232 16.5954 13.082 17.1276 13.3036C17.6597 13.5252 18.1141 13.8997 18.4333 14.3797C18.7524 14.8598 18.922 15.4237 18.9205 16.0001C18.9185 16.7714 18.6108 17.5104 18.0647 18.055C17.5186 18.5997 16.7789 18.9055 16.0076 18.9055Z"/>
+            <path d="M20.4481 10.4443C20.1525 10.4443 19.869 10.5614 19.6599 10.7698C19.4509 10.9781 19.3335 11.2608 19.3335 11.5554C19.3335 11.8501 19.4509 12.1327 19.6599 12.3411C19.869 12.5495 20.1525 12.6666 20.4481 12.6666C20.7418 12.6644 21.0235 12.5504 21.2357 12.348C21.4409 12.1378 21.5557 11.8561 21.5557 11.5629C21.5557 11.2696 21.4409 10.9879 21.2357 10.7777C21.0259 10.5698 20.7438 10.4505 20.4481 10.4443Z" />
+        </symbol>
+        <symbol id="whatsapp" viewBox="0 0 28 28">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M20.1232 8.07062C18.5251 6.47832 16.3998 5.60103 14.1356 5.6001C9.47007 5.6001 5.67297 9.37892 5.6711 14.0234C5.67047 15.5081 6.06019 16.9574 6.80095 18.2349L5.6001 22.6001L10.0873 21.4286C11.3237 22.0999 12.7156 22.4536 14.1322 22.454H14.1358C18.8008 22.454 22.5983 18.6749 22.6001 14.0302C22.601 11.7792 21.7214 9.66281 20.1232 8.07062ZM14.1356 21.0314H14.1327C12.8704 21.0308 11.6323 20.6932 10.552 20.0554L10.2952 19.9036L7.63241 20.5988L8.34314 18.0151L8.17581 17.7502C7.47154 16.6354 7.09965 15.3469 7.10028 14.0239C7.10174 10.1636 10.2579 7.02285 14.1385 7.02285C16.0176 7.02347 17.7841 7.7527 19.1123 9.07615C20.4406 10.3996 21.1716 12.1588 21.171 14.0296C21.1694 17.8903 18.0134 21.0314 14.1356 21.0314ZM17.9947 15.7874C17.7832 15.682 16.7434 15.173 16.5494 15.1026C16.3557 15.0324 16.2146 14.9974 16.0737 15.208C15.9327 15.4187 15.5274 15.8929 15.404 16.0332C15.2805 16.1737 15.1573 16.1914 14.9457 16.086C14.7342 15.9806 14.0528 15.7583 13.2449 15.0412C12.6162 14.4831 12.1917 13.7938 12.0683 13.5832C11.9451 13.3723 12.0673 13.2694 12.1611 13.1536C12.39 12.8706 12.6193 12.574 12.6898 12.4336C12.7604 12.2931 12.725 12.1702 12.6721 12.0648C12.6193 11.9595 12.1963 10.9235 12.0201 10.5019C11.8483 10.0917 11.6741 10.1471 11.5442 10.1406C11.421 10.1345 11.2799 10.1333 11.1388 10.1333C10.9979 10.1333 10.7687 10.1859 10.5748 10.3967C10.381 10.6074 9.83467 11.1166 9.83467 12.1526C9.83467 13.1887 10.5925 14.1895 10.6982 14.33C10.804 14.4705 12.1897 16.5966 14.3112 17.5082C14.8158 17.7253 15.2097 17.8546 15.517 17.9517C16.0237 18.1119 16.4846 18.0892 16.8491 18.0351C17.2555 17.9746 18.1003 17.5258 18.2767 17.0342C18.4529 16.5425 18.4529 16.1211 18.3999 16.0332C18.3472 15.9455 18.2061 15.8929 17.9947 15.7874Z"/>
+        </symbol>
+        <symbol id="arrow-slider"  viewBox="0 0 129 16">
+            <path d="M127.743 8.70711C128.133 8.31658 128.133 7.68342 127.743 7.29289L121.379 0.928932C120.988 0.538408 120.355 0.538408 119.964 0.928932C119.574 1.31946 119.574 1.95262 119.964 2.34315L125.621 8L119.964 13.6569C119.574 14.0474 119.574 14.6805 119.964 15.0711C120.355 15.4616 120.988 15.4616 121.379 15.0711L127.743 8.70711ZM0 9L127.035 9V7L0 7L0 9Z"/>
+        </symbol>
+    </svg>
+</div>
+
     <header class="main-header">
         <div class="container main-header__container">
             <div class="main-header__top">
@@ -22,253 +53,462 @@
                 </div>
                 <ul class="social main-header__social">
                     <li class="social__item">
-                        <a href="" class="social__link"></a>
+                        <a href="#" class="social__link">
+                            <svg class="social__icon"><use xlink:href="#viber"></use></svg>
+                        </a>
                     </li>
                     <li class="social__item">
-                        <a href="" class="social__link"></a>
+                        <a href="#" class="social__link">
+                            <svg class="social__icon"><use xlink:href="#instagram"></use></svg>
+                        </a>
                     </li>
                     <li class="social__item">
-                        <a href="" class="social__link"></a>
+                        <a href="#" class="social__link">
+                            <svg class="social__icon"><use xlink:href="#whatsapp"></use></svg>
+                        </a>
                     </li>
                 </ul>
+                <div class="sandwich">
+                    <div class="sandwich__inner"></div>
+                </div>
             </div>
-            <nav class="main-nav">
-                <ul class="site-navigation">
-                    <li class="site-navigation__item">
-                        <a href="">Главная</a>
+
+            <div class="main-header__sm">
+                <div class="slogan slogan--sm main-header__slogan">Только качественные запчасти</div>
+                <div class="connection connection--sm main-header__connection">
+                    <div class="connection__item connection__item--location">г. Пенза, ул. Ленина, 45</div>
+                    <a href="tel:+79003214323" class="connection__item connection__item--phone">+7 (900) 321-43-23</a>
+                </div>
+                <ul class="social social--sm main-header__social">
+                    <li class="social__item">
+                        <a href="#" class="social__link">
+                            <svg class="social__icon"><use xlink:href="#viber"></use></svg>
+                        </a>
                     </li>
-                    <li class="site-navigation__item">
-                        <a href="">О компании</a>
+                    <li class="social__item">
+                        <a href="#" class="social__link">
+                            <svg class="social__icon"><use xlink:href="#instagram"></use></svg>
+                        </a>
                     </li>
-                    <li class="site-navigation__item">
-                        <a href="">Подбор автозапчастей</a>
-                    </li>
-                    <li class="site-navigation__item">
-                        <a href="">Каталог</a>
-                    </li>
-                    <li class="site-navigation__item">
-                        <a href="">Новости</a>
-                    </li>
-                    <li class="site-navigation__item">
-                        <a href="">Акции и бонусы</a>
-                    </li>
-                    <li class="site-navigation__item">
-                        <a href="">Контакты</a>
+                    <li class="social__item">
+                        <a href="#" class="social__link">
+                            <svg class="social__icon"><use xlink:href="#whatsapp"></use></svg>
+                        </a>
                     </li>
                 </ul>
-            </nav>
+                <nav class="main-nav main-nav--sm">
+                    <ul class="site-navigation">
+                        <li class="site-navigation__item">
+                            <a href="#">Главная</a>
+                        </li>
+                        <li class="site-navigation__item">
+                            <a href="#">О компании</a>
+                        </li>
+                        <li class="site-navigation__item">
+                            <a href="#">Подбор автозапчастей</a>
+                        </li>
+                        <li class="site-navigation__item">
+                            <a href="#">Каталог</a>
+                        </li>
+                        <li class="site-navigation__item">
+                            <a href="#">Новости</a>
+                        </li>
+                        <li class="site-navigation__item">
+                            <a href="#">Акции и бонусы</a>
+                        </li>
+                        <li class="site-navigation__item">
+                            <a href="#">Контакты</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
+        <nav class="main-nav">
+            <ul class="site-navigation">
+                <li class="site-navigation__item">
+                    <a href="#">Главная</a>
+                </li>
+                <li class="site-navigation__item">
+                    <a href="#">О компании</a>
+                </li>
+                <li class="site-navigation__item">
+                    <a href="#">Подбор автозапчастей</a>
+                </li>
+                <li class="site-navigation__item">
+                    <a href="#">Каталог</a>
+                </li>
+                <li class="site-navigation__item">
+                    <a href="#">Новости</a>
+                </li>
+                <li class="site-navigation__item">
+                    <a href="#">Акции и бонусы</a>
+                </li>
+                <li class="site-navigation__item">
+                    <a href="#">Контакты</a>
+                </li>
+            </ul>
+        </nav>
     </header>
     <main>
         <h1 class="visually-hidden">Качественные запчасти для иномарок</h1>
         <section class="promo">
-           <div class="container promo__container">
-               <h2>Качественные запчасти для иномарок</h2>
-               <a href="#" class="button promo__button">Оставить заявку</a>
-           </div>
+            <section class="promo__overlay">
+                <section class="promo__bg">
+                    <div class="container">
+                        <h2 class="promo__header">Качественные запчасти для иномарок</h2>
+                        <a href="#" class="button promo__button">Оставить заявку</a>
+                    </div>
+                </section>
+            </section>
+
+            <div class="container promo__container"></div>
         </section>
         <section class="brands">
             <div class="container brands__container">
-                <h2>Бренды с которыми мы работаем</h2>
+                <h2 class="section-header brands__header">Бренды с которыми мы работаем</h2>
                 <ul class="brands__list">
                     <li class="brands__item">
-                        <img src="img/brends/hyundai.png" alt="Ауди" class="brands__img" width="65" height="65">
+                        <img src="img/brends/hyundai.png" alt="Ауди" class="brands__img">
                     </li>
                     <li class="brands__item">
-                        <img src="img/brends/kia.png" alt="Ауди" class="brands__img" width="65" height="65">
+                        <img src="img/brends/kia.png" alt="Ауди" class="brands__img">
                     </li>
                     <li class="brands__item">
-                        <img src="img/brends/ssang-young.png" alt="Ауди" class="brands__img" width="65" height="65">
+                        <img src="img/brends/ssang-young.png" alt="Ауди" class="brands__img">
                     </li>
                     <li class="brands__item">
-                        <img src="img/brends/toyota.png" alt="Ауди" class="brands__img" width="65" height="65">
+                        <img src="img/brends/toyota.png" alt="Ауди" class="brands__img">
                     </li>
                     <li class="brands__item">
-                        <img src="img/brends/lexus.png" alt="Ауди" class="brands__img" width="65" height="65">
+                        <img src="img/brends/lexus.png" alt="Ауди" class="brands__img">
                     </li>
                     <li class="brands__item">
-                        <img src="img/brends/honda.png" alt="Ауди" class="brands__img" width="65" height="65">
+                        <img src="img/brends/honda.png" alt="Ауди" class="brands__img">
                     </li>
                     <li class="brands__item">
-                        <img src="img/brends/mazda.png" alt="Ауди" class="brands__img" width="65" height="65">
+                        <img src="img/brends/mazda.png" alt="Ауди" class="brands__img">
                     </li>
                     <li class="brands__item">
-                        <img src="img/brends/mitsubishi.png" alt="Ауди" class="brands__img" width="65" height="65">
+                        <img src="img/brends/mitsubishi.png" alt="Ауди" class="brands__img">
                     </li>
                     <li class="brands__item">
-                        <img src="img/brends/nissan.png" alt="Ауди" class="brands__img" width="65" height="65">
+                        <img src="img/brends/nissan.png" alt="Ауди" class="brands__img">
                     </li>
                     <li class="brands__item">
-                        <img src="img/brends/subaru.png" alt="Ауди" class="brands__img" width="65" height="65">
+                        <img src="img/brends/subaru.png" alt="Ауди" class="brands__img">
                     </li>
                     <li class="brands__item">
-                        <img src="img/brends/suzuki.png" alt="Ауди" class="brands__img" width="65" height="65">
+                        <img src="img/brends/suzuki.png" alt="Ауди" class="brands__img">
                     </li>
                     <li class="brands__item">
-                        <img src="img/brends/audi.png" alt="Ауди" class="brands__img" width="65" height="65">
+                        <img src="img/brends/audi.png" alt="Ауди" class="brands__img">
                     </li>
                     <li class="brands__item">
-                        <img src="img/brends/volkswagen.png" alt="Ауди" class="brands__img" width="65" height="65">
+                        <img src="img/brends/volkswagen.png" alt="Ауди" class="brands__img">
                     </li>
                     <li class="brands__item">
-                        <img src="img/brends/skoda.png" alt="Ауди" class="brands__img" width="65" height="65">
+                        <img src="img/brends/skoda.png" alt="Ауди" class="brands__img">
                     </li>
                     <li class="brands__item">
-                        <img src="img/brends/merc.png" alt="Ауди" class="brands__img" width="65" height="65">
+                        <img src="img/brends/merc.png" alt="Ауди" class="brands__img">
                     </li>
                     <li class="brands__item">
-                        <img src="img/brends/bmw.png" alt="Ауди" class="brands__img" width="65" height="65">
+                        <img src="img/brends/bmw.png" alt="Ауди" class="brands__img">
                     </li>
                     <li class="brands__item">
-                        <img src="img/brends/renault.png" alt="Ауди" class="brands__img" width="65" height="65">
+                        <img src="img/brends/renault.png" alt="Ауди" class="brands__img">
                     </li>
                     <li class="brands__item">
-                        <img src="img/brends/opel.png" alt="Ауди" class="brands__img" width="65" height="65">
+                        <img src="img/brends/opel.png" alt="Ауди" class="brands__img">
                     </li>
                     <li class="brands__item">
-                        <img src="img/brends/chevrolet.png" alt="Ауди" class="brands__img" width="65" height="65">
+                        <img src="img/brends/chevrolet.png" alt="Ауди" class="brands__img">
                     </li>
                     <li class="brands__item">
-                        <img src="img/brends/ravon.png" alt="Ауди" class="brands__img" width="65" height="65">
+                        <img src="img/brends/ravon.png" alt="Ауди" class="brands__img">
                     </li>
                     <li class="brands__item">
-                        <img src="img/brends/chery.png" alt="Ауди" class="brands__img" width="65" height="65">
+                        <img src="img/brends/chery.png" alt="Ауди" class="brands__img">
                     </li>
                     <li class="brands__item">
-                        <img src="img/brends/lifaann.png" alt="Ауди" class="brands__img" width="65" height="65">
+                        <img src="img/brends/lifaann.png" alt="Ауди" class="brands__img">
                     </li>
                     <li class="brands__item">
-                        <img src="img/brends/hover.png" alt="Ауди" class="brands__img" width="65" height="65">
+                        <img src="img/brends/hover.png" alt="Ауди" class="brands__img">
                     </li>
                     <li class="brands__item">
-                        <img src="img/brends/geely.png" alt="Ауди" class="brands__img" width="65" height="65">
+                        <img src="img/brends/geely.png" alt="Ауди" class="brands__img">
                     </li>
 
                 </ul>
             </div>
         </section>
         <section class="feedback">
-           <div class="container feedback__container">
-               <h2>Узнайте сколько стоит ваша запчасть</h2>
-               <p>Заполните форму и наши специалисты подберут для Вас нужные запчасти и комплектующие.
-                   Не нужно никуда выезжать - Вам перезвонят и сообщат о наличии каждой детали.</p>
-           </div>
+            <section class="feedback__bg">
+                <div class="container feedback__container">
+                    <h2 class="section-header feedback__header">Узнайте сколько стоит ваша запчасть</h2>
+                    <p class="text-block feedback__text">Заполните форму и наши специалисты подберут для Вас нужные запчасти и комплектующие.
+                        Не нужно никуда выезжать - Вам перезвонят и сообщат о наличии каждой детали.</p>
+                </div>
+            </section>
+            <div class="container feedback__form">
+                <form action="." class="form">
+                    <div class="form__group">
+                        <div class="form__row form__row--mr">
+                            <span class="form__label">Ваше имя</span>
+                            <input type="text" class="form__input">
+                        </div>
+                        <div class="form__row">
+                            <span class="form__label">Телефон</span>
+                            <input type="text" class="form__input">
+                        </div>
+                    </div>
+                    <div class="form__group">
+                        <div class="form__row">
+                            <span class="form__label">Марка и модель автомобиля</span>
+                            <input type="text" class="form__input">
+                        </div>
+                    </div>
+                    <div class="form__group">
+                        <div class="form__row">
+                            <span class="form__label">VIN</span>
+                            <input type="text" class="form__input">
+                        </div>
+                    </div>
+                    <div class="form__group">
+                        <div class="form__row">
+                            <span class="form__label">Напишите, какие запчасти вам нужны</span>
+                            <input type="text" class="form__input">
+                        </div>
+                    </div>
+                    <button class="button form__button" type="submit">Подобрать запчасти</button>
+                </form>
+            </div>
+
         </section>
-        <sectin class="review">
+        <section class="review">
            <div class="container review__container">
-               <h2>Вы еще сомневаетесь?</h2>
-               <p>Мы уже помогли автовладельцам подобрать нужные запчасти</p>
+               <h2 class="section-header review__header">Вы еще сомневаетесь?</h2>
+               <p class="text-block review__text">Мы уже помогли автовладельцам подобрать нужные запчасти</p>
                <ul class="slider">
-                   <li class="slider__item">
-                       <p class="slider__title">Мне нравится</p>
-                       <p class="slider__text">Классная сеть по обеспечению запасными частями на все виды транспорта. Поиск запчастей позволяет выбрать поставщика по цене и сроку доставки. прямо на вооружении нареканий моментальная замена или возврат средств. Одно исключение в удобстве связано с изменением дорожной разметки, въезд только со стороны центра.
-                           Ребята работают общительные, можно договориться о выборе заказа</p>
-                       <p class="slider__author">Алексей<br>Москвич</p>
+                   <li class="slider__block">
+                       <div class="slider__item">
+                           <p class="slider__title">Мне нравится</p>
+                           <p class="text-block slider__text">Классная сеть по обеспечению запасными частями на все виды транспорта. Поиск запчастей позволяет выбрать поставщика по цене и сроку доставки. прямо на вооружении нареканий моментальная замена или возврат средств. Одно исключение в удобстве связано с изменением дорожной разметки, въезд только со стороны центра.
+                               Ребята работают общительные, можно договориться о выборе заказа</p>
+                           <p class="slider__author">Алексей<br>Москвич</p>
+                       </div>
                    </li>
-                   <li class="slider__item">
-                       <p class="slider__title">Все купил, все хорошо</p>
-                       <p class="slider__text">Все ок, ребята четкие и по делу, не обманули</p>
-                       <p class="slider__author">Иван Петров<br>
-                           Renault Logan 2010</p>
+
+                   <li class="slider__block">
+                       <div class="slider__item">
+                           <p class="slider__title">Все купил, все хорошо</p>
+                           <p class="text-block slider__text">Все ок, ребята четкие и по делу, не обманули</p>
+                           <p class="slider__author">Иван Петров<br>
+                               Renault Logan 2010</p>
+                       </div>
                    </li>
-                   <li class="slider__item">
-                       <p class="slider__title">Все купил, все плохо</p>
-                       <p class="slider__text">Халтурщики</p>
-                       <p class="slider__author">Ирина Егошкина<br>
-                           Lada Kalina</p>
+
+                   <li class="slider__block">
+                       <div class="slider__item">
+                           <p class="slider__title">Все купил, все плохо</p>
+                           <p class="text-block slider__text">Халтурщики</p>
+                           <p class="slider__author">Ирина Егошкина<br>
+                               Lada Kalina</p>
+                       </div>
                    </li>
+                   <li class="slider__block">
+                       <div class="slider__item">
+                           <p class="slider__title">Все купил, все плохо</p>
+                           <p class="text-block slider__text">Халтурщики</p>
+                           <p class="slider__author">Ирина Егошкина<br>
+                               Lada Kalina</p>
+                       </div>
+                   </li>
+                   <li class="slider__block">
+                       <div class="slider__item">
+                           <p class="slider__title">Все купил, все плохо</p>
+                           <p class="text-block slider__text">Халтурщики</p>
+                           <p class="slider__author">Ирина Егошкина<br>
+                               Lada Kalina</p>
+                       </div>
+                   </li>
+
                </ul>
            </div>
-        </sectin>
+        </section>
         <section class="additional">
            <div class="container additional__container">
-               <h2>Дополнительная информация</h2>
+               <h2 class="section-header additional__header">Дополнительная информация</h2>
                <div class="tabs">
-                    <div class="tabs__header">
+                    <div class="tabs__wrapper">
                         <div class="tabs__item tabs__item--active">Пункт 1</div>
-                        <div class="tabs__item">Пункт 2</div>
-                        <div class="tabs__item">Пункт 3</div>
-                    </div>
-                    <div class="tabs__content">
-                        <h4>Пункт 1</h4>
-                        <p>Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.
-                            Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад.
-                            Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат Вирджиния, взял одно из самых странных слов в Lorem Ipsum,
-                            "consectetur", и занялся его поисками в классической латинской литературе.
-                            В результате он нашёл неоспоримый первоисточник Lorem Ipsum в разделах 1.10.32 и 1.10.33 книги
-                            "de Finibus Bonorum et Malorum" ("О пределах добра и зла"), написанной Цицероном в 45 году н.э.
-                            Этот трактат по теории этики был очень популярен в эпоху Возрождения. Первая строка Lorem Ipsum,
-                            "Lorem ipsum dolor sit amet..", происходит от одной из строк в разделе 1.10.32</p>
+                        <div class="tabs__content">
+                            <h4>Пункт 1</h4>
+                            <div class="text-block tabs__text">
+                                <p>Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.
+                                    Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад.
+                                    Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат Вирджиния, взял одно из самых странных слов в Lorem Ipsum,
+                                    "consectetur", и занялся его поисками в классической латинской литературе.
+                                    В результате он нашёл неоспоримый первоисточник Lorem Ipsum в разделах 1.10.32 и 1.10.33 книги
+                                    "de Finibus Bonorum et Malorum" ("О пределах добра и зла"), написанной Цицероном в 45 году н.э.
+                                    Этот трактат по теории этики был очень популярен в эпоху Возрождения. Первая строка Lorem Ipsum,
+                                    "Lorem ipsum dolor sit amet..", происходит от одной из строк в разделе 1.10.32</p>
 
-                            <p>Классический текст Lorem Ipsum, используемый с XVI века, приведён ниже.
-                                Также даны разделы 1.10.32 и 1.10.33 "de Finibus Bonorum et Malorum"
-                                Цицерона и их английский перевод, сделанный H. Rackham, 1914 год.</p>
-                    </div>
-                    <div class="tabs__content">
-                       <h4>Пункт 1</h4>
-                       <p>Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.
-                           Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад.
-                           Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат Вирджиния, взял одно из самых странных слов в Lorem Ipsum,
-                           "consectetur", и занялся его поисками в классической латинской литературе.
-                           В результате он нашёл неоспоримый первоисточник Lorem Ipsum в разделах 1.10.32 и 1.10.33 книги
-                           "de Finibus Bonorum et Malorum" ("О пределах добра и зла"), написанной Цицероном в 45 году н.э.
-                           Этот трактат по теории этики был очень популярен в эпоху Возрождения. Первая строка Lorem Ipsum,
-                           "Lorem ipsum dolor sit amet..", происходит от одной из строк в разделе 1.10.32</p>
+                                <p>Классический текст Lorem Ipsum, используемый с XVI века, приведён ниже.
+                                    Также даны разделы 1.10.32 и 1.10.33 "de Finibus Bonorum et Malorum"
+                                    Цицерона и их английский перевод, сделанный H. Rackham, 1914 год.</p>
+                            </div>
 
-                       <p>Классический текст Lorem Ipsum, используемый с XVI века, приведён ниже.
-                           Также даны разделы 1.10.32 и 1.10.33 "de Finibus Bonorum et Malorum"
-                           Цицерона и их английский перевод, сделанный H. Rackham, 1914 год.</p>
+                        </div>
                     </div>
-                    <div class="tabs__content">
-                       <h4>Пункт 1</h4>
-                       <p>Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.
-                           Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад.
-                           Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат Вирджиния, взял одно из самых странных слов в Lorem Ipsum,
-                           "consectetur", и занялся его поисками в классической латинской литературе.
-                           В результате он нашёл неоспоримый первоисточник Lorem Ipsum в разделах 1.10.32 и 1.10.33 книги
-                           "de Finibus Bonorum et Malorum" ("О пределах добра и зла"), написанной Цицероном в 45 году н.э.
-                           Этот трактат по теории этики был очень популярен в эпоху Возрождения. Первая строка Lorem Ipsum,
-                           "Lorem ipsum dolor sit amet..", происходит от одной из строк в разделе 1.10.32</p>
+                   <div class="tabs__wrapper">
+                       <div class="tabs__item">Пункт 2</div>
+                       <div class="tabs__content">
+                           <h4>Пункт 2</h4>
+                           <div class="text-block tabs__text">
+                               <p>Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.
+                                   Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад.
+                                   Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат Вирджиния, взял одно из самых странных слов в Lorem Ipsum,
+                                   "consectetur", и занялся его поисками в классической латинской литературе.
+                                   В результате он нашёл неоспоримый первоисточник Lorem Ipsum в разделах 1.10.32 и 1.10.33 книги
+                                   "de Finibus Bonorum et Malorum" ("О пределах добра и зла"), написанной Цицероном в 45 году н.э.
+                                   Этот трактат по теории этики был очень популярен в эпоху Возрождения. Первая строка Lorem Ipsum,
+                                   "Lorem ipsum dolor sit amet..", происходит от одной из строк в разделе 1.10.32</p>
 
-                       <p>Классический текст Lorem Ipsum, используемый с XVI века, приведён ниже.
-                           Также даны разделы 1.10.32 и 1.10.33 "de Finibus Bonorum et Malorum"
-                           Цицерона и их английский перевод, сделанный H. Rackham, 1914 год.</p>
-                    </div>
+                               <p>Классический текст Lorem Ipsum, используемый с XVI века, приведён ниже.
+                                   Также даны разделы 1.10.32 и 1.10.33 "de Finibus Bonorum et Malorum"
+                                   Цицерона и их английский перевод, сделанный H. Rackham, 1914 год.</p>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="tabs__wrapper">
+                       <div class="tabs__item">Пункт 3</div>
+                       <div class="tabs__content">
+                           <h4>Пункт 3</h4>
+                           <div class="text-block tabs__text">
+                               <p>Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.
+                                   Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад.
+                                   Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат Вирджиния, взял одно из самых странных слов в Lorem Ipsum,
+                                   "consectetur", и занялся его поисками в классической латинской литературе.
+                                   В результате он нашёл неоспоримый первоисточник Lorem Ipsum в разделах 1.10.32 и 1.10.33 книги
+                                   "de Finibus Bonorum et Malorum" ("О пределах добра и зла"), написанной Цицероном в 45 году н.э.
+                                   Этот трактат по теории этики был очень популярен в эпоху Возрождения. Первая строка Lorem Ipsum,
+                                   "Lorem ipsum dolor sit amet..", происходит от одной из строк в разделе 1.10.32</p>
+
+                               <p>Классический текст Lorem Ipsum, используемый с XVI века, приведён ниже.
+                                   Также даны разделы 1.10.32 и 1.10.33 "de Finibus Bonorum et Malorum"
+                                   Цицерона и их английский перевод, сделанный H. Rackham, 1914 год.</p>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="tabs__wrapper">
+                       <div class="tabs__item">Пункт 4</div>
+                       <div class="tabs__content">
+                           <h4>Пункт 4</h4>
+                           <div class="text-block tabs__text">
+                               <p>Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.
+                                   Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад.
+                                   Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат Вирджиния, взял одно из самых странных слов в Lorem Ipsum,
+                                   "consectetur", и занялся его поисками в классической латинской литературе.
+                                   В результате он нашёл неоспоримый первоисточник Lorem Ipsum в разделах 1.10.32 и 1.10.33 книги
+                                   "de Finibus Bonorum et Malorum" ("О пределах добра и зла"), написанной Цицероном в 45 году н.э.
+                                   Этот трактат по теории этики был очень популярен в эпоху Возрождения. Первая строка Lorem Ipsum,
+                                   "Lorem ipsum dolor sit amet..", происходит от одной из строк в разделе 1.10.32</p>
+
+                               <p>Классический текст Lorem Ipsum, используемый с XVI века, приведён ниже.
+                                   Также даны разделы 1.10.32 и 1.10.33 "de Finibus Bonorum et Malorum"
+                                   Цицерона и их английский перевод, сделанный H. Rackham, 1914 год.</p>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="tabs__wrapper">
+                       <div class="tabs__item">Пункт 5</div>
+                       <div class="tabs__content">
+                           <h4>Пункт 5</h4>
+                           <div class="text-block tabs__text">
+                               <p>Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.
+                                   Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад.
+                                   Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат Вирджиния, взял одно из самых странных слов в Lorem Ipsum,
+                                   "consectetur", и занялся его поисками в классической латинской литературе.
+                                   В результате он нашёл неоспоримый первоисточник Lorem Ipsum в разделах 1.10.32 и 1.10.33 книги
+                                   "de Finibus Bonorum et Malorum" ("О пределах добра и зла"), написанной Цицероном в 45 году н.э.
+                                   Этот трактат по теории этики был очень популярен в эпоху Возрождения. Первая строка Lorem Ipsum,
+                                   "Lorem ipsum dolor sit amet..", происходит от одной из строк в разделе 1.10.32</p>
+
+                               <p>Классический текст Lorem Ipsum, используемый с XVI века, приведён ниже.
+                                   Также даны разделы 1.10.32 и 1.10.33 "de Finibus Bonorum et Malorum"
+                                   Цицерона и их английский перевод, сделанный H. Rackham, 1914 год.</p>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="tabs__wrapper">
+                       <div class="tabs__item">Пункт 6</div>
+                       <div class="tabs__content">
+                           <h4>Пункт 6</h4>
+                           <div class="text-block tabs__text">
+                               <p>Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.
+                                   Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад.
+                                   Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат Вирджиния, взял одно из самых странных слов в Lorem Ipsum,
+                                   "consectetur", и занялся его поисками в классической латинской литературе.
+                                   В результате он нашёл неоспоримый первоисточник Lorem Ipsum в разделах 1.10.32 и 1.10.33 книги
+                                   "de Finibus Bonorum et Malorum" ("О пределах добра и зла"), написанной Цицероном в 45 году н.э.
+                                   Этот трактат по теории этики был очень популярен в эпоху Возрождения. Первая строка Lorem Ipsum,
+                                   "Lorem ipsum dolor sit amet..", происходит от одной из строк в разделе 1.10.32</p>
+
+                               <p>Классический текст Lorem Ipsum, используемый с XVI века, приведён ниже.
+                                   Также даны разделы 1.10.32 и 1.10.33 "de Finibus Bonorum et Malorum"
+                                   Цицерона и их английский перевод, сделанный H. Rackham, 1914 год.</p>
+                           </div>
+                       </div>
+                   </div>
                </div>
            </div>
         </section>
         <section class="contacts">
-            <div class="contacts__info">
-                <a href="" class="logo logo--white contacts__logo"></a>
-                <h2>Ждем Вас в нашем магазине</h2>
-                <div class="contacts-list contacts__list">
-                    <div class="contacts-list__location">
-                        г. Пенза, ул. Ленина, 45
+            <div id="map" class="contacts__map"></div>
+            <div class="container contacts__container">
+
+                <div class="contacts__info">
+                    <a href="#" class="logo logo--white contacts__logo">
+                        <img src="img/logo-white.svg" alt="" class="logo__img">
+                    </a>
+                    <h2 class="section-header contacts__header">Ждем Вас в нашем магазине</h2>
+                    <div class="contacts-list contacts__list">
+                        <div class="contacts-list__item contacts-list__item--location">
+                            <p>г. Пенза, ул. Ленина, 45</p>
+                        </div>
+                        <div class="contacts-list__item contacts-list__item--phone">
+                            <p>+7 (900) 222-90-89</p>
+                            <p>+7 (987) 780-66-20 </p>
+                            <p>8 (8412) 49-90-20</p>
+                        </div>
+                        <div class="contacts-list__item contacts-list__item--work">
+                            <p>пн-пт<br> 9:00-18:00</p>
+                            <p>сб<br> 9:00-15:00</p>
+                            <p>вс<br> выходной</p>
+                        </div>
                     </div>
-                    <div class="contacts-list__phone">
-                        <p>+7 (900) 222-90-89</p>
-                        <p>+7 (987) 780-66-20 </p>
-                        <p>8 (8412) 49-90-20</p>
+                    <div class="contacts__social">
+                        <p class="contacts__social-title">Подписывайтесь на нас в соцсетях:</p>
+                        <ul class="social contacts__social-list">
+                            <li class="social__item ">
+                                <a href="#" class="social__link social__link--bw">
+                                    <svg class="social__icon social__icon--fc"><use xlink:href="#viber"></use></svg>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="#" class="social__link social__link--bw">
+                                    <svg class="social__icon social__icon--fc"><use xlink:href="#instagram"></use></svg>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="#" class="social__link social__link--bw">
+                                    <svg class="social__icon social__icon--fc"><use xlink:href="#whatsapp"></use></svg>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="contacts-list__work">
-                        <p>пн-пт<br> 9:00-18:00</p>
-                        <p>сб<br> 9:00-15:00</p>
-                        <p>вс<br> выходной</p>
-                    </div>
-                </div>
-                <div class="contacts__social">
-                    <p>Подписывайтесь на нас в соцсетях:</p>
-                    <ul class="social contacts__social-list">
-                        <li class="social__item">
-                            <a href="" class="social__link"></a>
-                        </li>
-                        <li class="social__item">
-                            <a href="" class="social__link"></a>
-                        </li>
-                        <li class="social__item">
-                            <a href="" class="social__link"></a>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </section>
@@ -276,25 +516,32 @@
     <footer class="main-footer">
         <div class="container main-footer__container">
             <div class="main-footer__top">
-                <a href="" class="logo main-footer__logo">
+                <a href="#" class="logo main-footer__logo">
                     <img src="img/logo.svg" alt="" width="254" height="43">
                 </a>
                 <ul class="social main-footer__social">
                     <li class="social__item">
-                        <a href="" class="social__link"></a>
+                        <a href="#" class="social__link">
+                            <svg class="social__icon"><use xlink:href="#viber"></use></svg>
+                        </a>
                     </li>
                     <li class="social__item">
-                        <a href="" class="social__link"></a>
+                        <a href="#" class="social__link">
+                            <svg class="social__icon"><use xlink:href="#instagram"></use></svg>
+                        </a>
                     </li>
                     <li class="social__item">
-                        <a href="" class="social__link"></a>
+                        <a href="#" class="social__link">
+                            <svg class="social__icon"><use xlink:href="#whatsapp"></use></svg>
+                        </a>
                     </li>
                 </ul>
-                <a href="" class="button main-footer__button">Заказать звонок</a>
+                <div class="main-footer__copyright">© 2021, Все права защищены</div>
+                <a href="#" class="button main-footer__button">Заказать звонок</a>
             </div>
             <div class="main-footer__bottom">
-                <div class="main-footer__copyright">© 2021, Все права защищены</div>
-                <a href="" class="main-footer__policy">Политика конфиденциальности</a>
+                <div class="main-footer__copyright main-footer__copyright--lg">© 2021, Все права защищены</div>
+                <a href="#" class="main-footer__policy">Политика конфиденциальности</a>
             </div>
         </div>
     </footer>

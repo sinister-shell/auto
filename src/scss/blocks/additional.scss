@@ -1,0 +1,19 @@
+.additional {
+  padding-top: 60px;
+  padding-bottom: 55px;
+  background: #ffffff;
+  @include sm-block {
+    padding-top: 85px;
+    padding-bottom: 85px;
+  }
+  @include md-block {
+    margin-bottom: 300px;
+  }
+  &__header {
+    margin-bottom: 20px;
+    text-align: center;
+    @include sm-block {
+      margin-bottom: 50px;
+    }
+  }
+}

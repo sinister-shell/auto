@@ -1,0 +1,35 @@
+.brands {
+  padding-top: 30px;
+  padding-bottom: 50px;
+  background: #F0F0F0;
+  @include sm-block {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  &__header {
+    margin-bottom: 20px;
+    @include sm-block {
+      margin-bottom: 60px;
+    }
+    @include md-block {
+      margin-bottom: 30px;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-wrap:wrap;
+    align-items: flex-start;
+  }
+  &__item {
+    @include col();
+    @include size(2);
+    margin-bottom: 10px;
+    @include md-block {
+      margin-bottom: 15px;
+      @include size(1);
+    }
+  }
+  &__img {
+    margin: auto;
+  }
+}

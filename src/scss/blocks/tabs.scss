@@ -1,0 +1,68 @@
+.tabs {
+  @include sm-block {
+    max-width: 620px;
+    margin: auto;
+  }
+  @include md-block {
+    max-width: 100%;
+    position: relative;
+  }
+  &__item {
+    margin-bottom: 10px;
+    padding: 16px;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+    color: #000000;
+    background: #F0F0F0;
+    border: 2px solid transparent;
+    @include sm-block {
+      padding: 14px;
+    }
+    @include md-block {
+      flex: 0 0 350px;
+    }
+    @include xl-block {
+      //min-width: 350px;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &--active {
+      background: #FFFFFF;
+      border-color: $accent;
+    }
+  }
+  &__content {
+    margin-bottom: 10px;
+    padding: 16px;
+    background: #F0F0F0;
+    @include md-block {
+      position: absolute;
+      top: 0;
+      @include size(7.6);
+      height: 688px;
+      overflow: hidden;
+      right: 0;
+    }
+    h4 {
+      margin-bottom: 16px;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 23px;
+      color: #000000;
+    }
+  }
+  &__text {
+    p {
+      margin-bottom: 20px;
+    }
+  }
+  &__wrapper {
+    @include md-block {
+      display: flex;
+      align-items: flex-start;
+      width: 100%;
+    }
+  }
+}

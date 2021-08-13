@@ -19,53 +19,30 @@ const isDev = process.argv.includes('--dev');
 const isSync = process.argv.includes('--sync');
 const replace = require('gulp-replace');
 
-let jsFiles = [
-	'node_modules/jquery/dist/jquery.min.js',
-	'./src/js/custom.js',
-];
-
-const paths = {
-	html: {
-		src: './src/*.html',
-		dest: 'build'
-	},
-	styles: {
-		src: './src/scss/styles.scss',
-		dest: 'build/css'
-	},
-	scripts: {
-		src: jsFiles,
-		dest: 'build/js'
-	},
-	fonts: {
-		src: './src/fonts/**/*',
-		dest: 'build/fonts'
-	},
-	img: {
-		src: './src/img/**/*',
-		dest: 'build/img'
-	},
-	gridsmart: {
-		src: './src/scss'
-	}
-};
-
+/*=== сбрасываем кэш у браузеров ===*/
 const curTime = new Date().getTime();
 function cacheBust() {
 	return gulp
-			.src(paths.html.src)
+			.src('src/*.html')
 			.pipe(replace(/cb=\d+/g, 'cb=' + curTime))
-			.pipe(gulp.dest(paths.html.dest));	
+			.pipe(gulp.dest('build'));	
 		
 }
 
+/*=== библиотеки и скрипты javascript ===*/
+let jsFiles = [
+	'node_modules/jquery/dist/jquery.min.js',
+	'src/libs/tiny-slider.js',
+	'src/js/custom.js',
+];
+
 function clean() {
-	return del('./build/*');
+	return del('build/*');
 }
 
 function styles() {
 	return gulp
-			.src(paths.styles.src)
+			.src('src/scss/styles.scss')
 			.pipe(gulpif(isDev, sourcemaps.init()))
 			.pipe(sass({
 				outputStyle: 'expanded'
@@ -76,74 +53,75 @@ function styles() {
 			.pipe(gulpif(!isDev /*is production*/ , cleanCSS({
 				level: {1: { specialComments: 0}}
 			})))
-			.pipe(gulpif(!isDev /*is production*/ , rename({
-				suffix: '.min',
-				prefix: ''
-			})))
 			.pipe(gulpif(isDev, sourcemaps.write()))
-			.pipe(gulp.dest(paths.styles.dest))
+			.pipe(gulp.dest('build/css'))
 			.pipe(gulpif(isSync, browserSync.stream()));
 }
 
 function scripts() {
 	return gulp
-			.src(paths.scripts.src, {allowEmpty: true})
+			.src(jsFiles)
 			.pipe(gulpif(isDev, sourcemaps.init()))
 			
 			.pipe(concat('scripts.js'))
-			.pipe(gulpif(!isDev /*is production*/ , rename({
-				suffix: '.min'
-			})))
 			.pipe(gulpif(isDev, sourcemaps.write()))
-			.pipe(gulp.dest(paths.scripts.dest))
+			.pipe(gulp.dest('build/js'))
 			.pipe(gulpif(isSync, browserSync.stream()));
 }
 
 function img() {
 	return gulp
-			.src(paths.img.src)
+			.src('src/img/**/*')
 			.pipe(cache(imagemin({
 				interlaced: true,
 				progressive: true,
 				svgoPlugins: [{
 					removeViewBox: false
 				}],
-				use: [pngquant()]
+				use: [pngquant({quality: [0.65, 0.7], speed: 5})]
 			})))
-			.pipe(gulp.dest(paths.img.dest))
+			.pipe(gulp.dest('build/img'))
 			.pipe(gulpif(isSync, browserSync.stream()));
 }
 
 function fonts() {
 	return gulp
-			.src(paths.fonts.src)
-			.pipe(gulp.dest(paths.fonts.dest))
+			.src('src/fonts/**/*')
+			.pipe(gulp.dest('build/fonts'))
 			.pipe(gulpif(isSync, browserSync.stream()));
+}
+
+function favicon() {
+	return gulp
+		.src('src/favicon.png')
+		.pipe(gulp.dest('build'));
 }
 
 function html() {
 	return gulp
-			.src(paths.html.src)
-			.pipe(gulp.dest(paths.html.dest))
+			.src('src/*.html')
+			.pipe(gulp.dest('build'))
 			.pipe(gulpif(isSync, browserSync.stream()));
 }
 
+/*=== настройка брейкпоинтов для адаптивной сетки ===*/
 function grid(done) {
 	let settings = {
 		outputStyle: 'scss',
 		columns: 12,
 		offset: "10px",
+		mobileFirst: true,
 		container: {
-			maxWidth: "1140px",
-			fields: "15px"
+			maxWidth: "1130px",
+			fields: "10px"
 		},
 		breakPoints: {
-			// xl: {
-			// 	width: "1280px",
-			// },
-			// md: {
-			// 	width: "920px",
-			// },
+			xl: {
+				width: "1100px",
+			},
+			md: {
+				width: "960px",
+			},
 			sm: {
 				width: "768px"
 			},
@@ -152,7 +130,7 @@ function grid(done) {
 			}
 		},
 	};
-	smartgrid(paths.gridsmart.src, settings);
+	smartgrid('src/scss', settings);
 	done();
 }
 
@@ -165,16 +143,15 @@ function watch() {
 		});
 	}
 
+	gulp.watch('src/*.html', html);
+	gulp.watch('src/scss/**/*.scss', styles);
+	gulp.watch('src/img/**/*', img);
+	gulp.watch(['src/libs/**/*.js', 'src/js/**/*.js'], scripts);
 	
-	gulp.watch(paths.styles.src, styles);
-	gulp.watch(paths.img.src, img).on('change', browserSync.reload);
-	gulp.watch(['./src/libs/**/*.js', './src/js/**/*.js'], scripts).on('change', browserSync.reload);
-	gulp.watch('./src/*.html', html).on('change', browserSync.reload);
 }
 
-let build = gulp.series(
-	clean,
-	gulp.parallel(html, styles, scripts, img, fonts),
+let build = gulp.series(clean,
+	gulp.parallel(html, styles, scripts, img, fonts, favicon),
 	cacheBust
 );
 

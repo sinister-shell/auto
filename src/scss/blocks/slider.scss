@@ -1,0 +1,50 @@
+.slider {
+  display: flex;
+  margin-bottom: 60px;
+  &__item {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 10px 38px;
+    background: #ffffff;
+  }
+  &__title {
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+  }
+  &__text {
+    margin-bottom: 20px;
+  }
+  &__author {
+    margin-top: auto;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+  }
+  &__arrow {
+    width: 125px;
+    height: 16px;
+    fill: $accent;
+    &--prev {
+      transform: rotate(-180deg);
+    }
+  }
+}
+
+.tns-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    padding: 15px;
+  }
+}
+
